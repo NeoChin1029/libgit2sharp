@@ -2012,12 +2012,12 @@ namespace LibGit2Sharp.Core
             }
         }
 
-        public static RemoteSafeHandle git_remote_create_anonymous(RepositorySafeHandle repo, string url, string refspec)
+        public static RemoteSafeHandle git_remote_create_anonymous(RepositorySafeHandle repo, string url)
         {
             using (ThreadAffinity())
             {
                 RemoteSafeHandle handle;
-                int res = NativeMethods.git_remote_create_anonymous(out handle, repo, url, refspec);
+                int res = NativeMethods.git_remote_create_anonymous(out handle, repo, url);
                 Ensure.ZeroResult(res);
 
                 return handle;

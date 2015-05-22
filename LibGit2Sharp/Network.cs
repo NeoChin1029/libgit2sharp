@@ -100,7 +100,7 @@ namespace LibGit2Sharp
         {
             Ensure.ArgumentNotNull(url, "url");
 
-            using (RemoteSafeHandle remoteHandle = Proxy.git_remote_create_anonymous(repository.Handle, url, null))
+            using (RemoteSafeHandle remoteHandle = Proxy.git_remote_create_anonymous(repository.Handle, url))
             {
                 GitRemoteCallbacks gitCallbacks = new GitRemoteCallbacks { version = 1 };
                 Proxy.git_remote_connect(remoteHandle, GitDirection.Fetch, ref gitCallbacks);
@@ -116,7 +116,7 @@ namespace LibGit2Sharp
 
             if (url != null)
             {
-                remoteHandle = Proxy.git_remote_create_anonymous(repoHandle, url, null);
+                remoteHandle = Proxy.git_remote_create_anonymous(repoHandle, url);
             }
             else
             {
